@@ -18,7 +18,7 @@ pipeline {
     stage('package') {
       steps {
         echo 'packaging sysfoo app'
-        sh 'mvn pacakge -DskipTests'
+        sh 'mvn package -DskipTests'
         archiveArtifacts 'target/*.war'
       }
     }
