@@ -19,6 +19,7 @@ pipeline {
       steps {
         echo 'packaging sysfoo app'
         sh 'mvn package -DskipTests'
+        archiveArtifacts 'target/*.war'
       }
     }
 
