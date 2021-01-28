@@ -7,6 +7,10 @@ pipeline {
   }
   stages {
     stage('build') {
+      when {
+		beforeAgent true
+		branch 'master' 
+	 }
       steps {
         echo 'compiling sysfoo app'
         sh 'mvn compile'
@@ -14,6 +18,11 @@ pipeline {
     }
 
     stage('test') {
+	when {
+		beforeAgent true
+		branch 'master' 
+	 }
+
       steps {
         echo 'test sysfoo app'
         sh 'mvn clean test'
@@ -21,6 +30,10 @@ pipeline {
     }
 
     stage('package') {
+	when {
+		beforeAgent true
+		branch 'master' 
+	 }
       steps {
         echo 'packaging sysfoo app'
         sh 'mvn package -DskipTests'
